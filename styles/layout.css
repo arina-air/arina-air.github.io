@@ -743,10 +743,10 @@
   /* Pull ABOUT up by 250px; add the same amount back to WORKING so everything
      below ABOUT stays exactly where it was. */
   #about {
-    margin-top: -250px;
+    margin-top: -450px;
   }
   #working {
-    margin-top: 250px;
+    margin-top: 450px;
   }
 
   /* ---- Nav: contacts on the LEFT (always visible), burger on the RIGHT.
