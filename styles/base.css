@@ -1,0 +1,113 @@
+/* ===== Design tokens (from Figma: Portfolio) ===== */
+:root {
+  /* Colors */
+  --color-bg: #010101;
+  --color-white: #ffffff;
+  --color-black: #010101;
+  --color-pure-black: #000000;
+  --color-accent-green: #66ffb3;
+  --color-accent-pink: #ffcbfc;
+  --color-accent-light: #f1f2ff;
+  --color-muted: #727272;
+  --color-nav-bg: rgba(255, 255, 255, 0.2);
+  --color-card-placeholder: #d9d9d9;
+
+  /* Typography (Mona Sans) */
+  --font-family: "Mona Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --fs-hero: 128px;
+  --fs-hero-sub: 48px;
+  --fs-title: 64px;   /* chapter heading */
+  --fs-h2: 32px;      /* card title */
+  --fs-h3: 24px;      /* card support */
+  --fs-body: 20px;    /* free typo */
+  --fs-regular: 16px; /* regular / button */
+  --fs-note: 12px;    /* notes */
+
+  /* Spacing scale */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 46px;
+  --space-12: 56px;
+  --space-16: 80px;
+
+  /* Radii */
+  --radius-pill: 22px;
+  --radius-card: 32px;
+  --radius-img: 30px;
+  --radius-round: 64px;
+
+  /* Layout */
+  --container: 1440px;
+  --content: 1388px;
+  --side-pad: 26px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 0.18s;
+  --dur: 0.32s;
+  --dur-slow: 0.6s;
+}
+
+/* ===== Reset / normalize ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-white);
+  line-height: 1.2;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

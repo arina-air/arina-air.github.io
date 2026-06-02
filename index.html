@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arina Airieva — Personal Portfolio</title>
+  <meta name="description" content="Personal portfolio of Arina Airieva — strategy & innovation within creation." />
+
+  <!-- Mona Sans (falls back to Inter / system sans if unavailable) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/mona-sans@latest/index.css" />
+
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+</head>
+<body>
+  <!-- ===== Top navigation ===== -->
+  <header class="nav" id="nav">
+    <nav class="nav__contacts" aria-label="Contacts">
+      <a class="btn-pill btn-contact" href="https://t.me/froklyy" target="_blank" rel="noopener">telegram</a>
+      <a class="btn-pill btn-contact" href="https://github.com/foreverfandomer-rgb" target="_blank" rel="noopener">github</a>
+      <a class="btn-pill btn-contact" href="mailto:froklyy@yandex.ru">froklyy@yandex.ru</a>
+    </nav>
+
+    <nav class="nav__links" id="navLinks" aria-label="Sections">
+      <a class="btn-pill nav-link is-active" href="#about" data-section="about">About</a>
+      <a class="btn-pill nav-link" href="#working" data-section="working">Working</a>
+      <a class="btn-pill nav-link" href="#making" data-section="making">Making</a>
+      <a class="btn-pill nav-link" href="#learning" data-section="learning">Learning</a>
+      <a class="btn-pill nav-link" href="#thinking" data-section="thinking">Thinking</a>
+    </nav>
+
+    <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="page">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero__bg">
+        <img src="assets/img/hero-bg.jpg" alt="" />
+      </div>
+      <!-- Animated decorative overlay — only on the first screen, scrolls away -->
+      <div class="hero__overlay" aria-hidden="true">
+        <img src="assets/img/overlay.webp" alt="" />
+      </div>
+      <div class="hero__inner">
+        <div class="hero__headline">
+          <h1 class="hero__title">&ldquo;Do Things</h1>
+          <p class="hero__sub">that scare you the most and you will never fail&rdquo;</p>
+        </div>
+        <div class="hero__meta">
+          <p>personal portfolio<br />of arina airieva</p>
+          <p>strategy &amp; innovation<br />within creation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="chapter chapter--photo" id="about">
+      <h2 class="chapter__title reveal">ABOUT</h2>
+      <div class="about__body">
+        <p class="reveal">I started as communication designer but kept thinking about what&rsquo;s the actual behavior underneath people&rsquo;s choices and how in particular my works trigger it.</p>
+        <p class="reveal">That curiosity pulled me toward data analysis, economics and research methods. Now I sit at the intersection of creative thinking and quantitative rigor, translating abstract problems into measurable strategy.</p>
+      </div>
+    </section>
+
+    <!-- ===== Working ===== -->
+    <section class="chapter" id="working">
+      <h2 class="chapter__title reveal">WORKING</h2>
+      <div class="container">
+        <div class="work-cards">
+          <!-- Card 1 -->
+          <article class="card-work reveal">
+            <div class="card-work__left">
+              <div class="card-work__head">
+                <p class="card-work__date">2024 sep - 2025 aug</p>
+                <div class="card-work__titlerow">
+                  <div class="card-work__titles">
+                    <h3 class="card-work__title">Research, Analytics &amp; Brand</h3>
+                    <p class="card-work__company">at Ceres Finance</p>
+                  </div>
+                  <a class="icon-link" href="https://t.me/ceres_fi" target="_blank" rel="noopener" aria-label="Open Ceres Finance">
+                    <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div class="card-work__desc">
+                <p>Identified why users were churning from a DeFi product through behavioral analysis. Changed retention mechanics based on findings. Resulted in +10% engagement, -20% churn.</p>
+                <p>Managed quantitative research on market trends that directly shaped the product roadmap for developers and designer.</p>
+                <p>Project was awarded at TON-Hackaton.</p>
+              </div>
+            </div>
+            <div class="card-work__media">
+              <img src="assets/img/ceres.jpg" alt="Ceres Finance project" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card-work reveal">
+            <div class="card-work__left">
+              <div class="card-work__head">
+                <p class="card-work__date">2025 aug - 2026 feb</p>
+                <div class="card-work__titlerow">
+                  <div class="card-work__titles">
+                    <h3 class="card-work__title">Art Direction</h3>
+                    <p class="card-work__company">at Neplohoy Production</p>
+                  </div>
+                  <a class="icon-link" href="https://hsedesign.ru/project/212f9dc8ebe247cc91d1270b265ead1a" target="_blank" rel="noopener" aria-label="Open Neplohoy Production project">
+                    <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div class="card-work__desc">
+                <p>Performed as Art Director&rsquo;s Assistant.</p>
+                <p>Built competitive analysis and pitch decks that convinced major clients to fund creative campaigns. Included Moscow Metro Train, Red Square installation and SPIEF stand.</p>
+              </div>
+            </div>
+            <div class="card-work__media">
+              <img src="https://www.figma.com/api/mcp/asset/9620800d-fb40-41e2-8fed-f4248d4b9716" alt="Neplohoy Production project" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card-work reveal">
+            <div class="card-work__left">
+              <div class="card-work__head">
+                <p class="card-work__date">2025 aug - 2026 jan</p>
+                <div class="card-work__titlerow">
+                  <div class="card-work__titles">
+                    <h3 class="card-work__title">Marketing &amp; Brand</h3>
+                    <p class="card-work__company">at Raketka ping-pong club</p>
+                  </div>
+                  <a class="icon-link" href="https://hsedesign.ru/project/22a5e34898604605a3c94ac2db16fe84" target="_blank" rel="noopener" aria-label="Open Raketka project">
+                    <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div class="card-work__desc">
+                <p>Built the entire brand identity system from research to visual design and campaign execution. Launched the club and developed merch.</p>
+                <p>Diagnosed the conversion problem. Switched to a package-of-visits discount model. Resulted in 25% increase in conversion rate through better business model design.</p>
+              </div>
+            </div>
+            <div class="card-work__media">
+              <img src="https://www.figma.com/api/mcp/asset/3e950508-9444-464e-b6a2-2e95c5be6e76" alt="Raketka ping-pong club project" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- Brand logos -->
+          <div class="brand-cards reveal">
+            <div class="card-brand"><img src="https://www.figma.com/api/mcp/asset/15389448-f269-4859-94a1-df1b748e4d8a" alt="Brand logo" loading="lazy" /></div>
+            <div class="card-brand"><img src="https://www.figma.com/api/mcp/asset/c354a167-9025-4955-9f63-efd8028ccb49" alt="Brand logo" loading="lazy" /></div>
+            <div class="card-brand"><img src="https://www.figma.com/api/mcp/asset/bca87935-4ab7-4ec6-b3fc-c78a0d9300b2" alt="Brand logo" loading="lazy" /></div>
+            <div class="card-brand"><img src="https://www.figma.com/api/mcp/asset/be6555c6-c950-43a4-a4c4-f5aa74e501be" alt="Brand logo" loading="lazy" /></div>
+            <div class="card-brand"><img src="https://www.figma.com/api/mcp/asset/148976df-6f5d-4af0-9ec8-03bf4a87f9f1" alt="Brand logo" loading="lazy" /></div>
+            <div class="card-brand"><img src="https://www.figma.com/api/mcp/asset/10a0eee3-8048-40a5-8571-199386177baa" alt="Brand logo" loading="lazy" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Making ===== -->
+    <section class="chapter" id="making">
+      <h2 class="chapter__title reveal">MAKING</h2>
+      <p class="chapter__lead reveal">I make things that clarify confusion. Usually they involve some combination of data, design, and hypothesis testing.</p>
+
+      <div class="container">
+        <div class="making">
+          <!-- Movies -->
+          <div class="subsection">
+            <h3 class="subsection__title reveal">movies</h3>
+            <div class="activity-row">
+              <!-- Whales -->
+              <article class="card-activity reveal">
+                <a class="icon-link card-activity__link" href="https://piligrim.fund/articles/slabost-na-ekrane-zametki-o-dnevnikovom-kino" target="_blank" rel="noopener" aria-label="Read article">
+                  <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/12e6cce5-ffd2-4b9c-8a4f-1725e51ebada" alt="Whales documentary" loading="lazy" /></div>
+                <div class="card-activity__body card-activity__body--green">
+                  <div class="card-activity__head">
+                    <div class="card-activity__titles">
+                      <p class="card-activity__kicker">documentary movie</p>
+                      <p class="card-activity__name">&ldquo;Whales.&rdquo;</p>
+                    </div>
+                    <div class="card-activity__meta">2025<br />Hong Kong</div>
+                  </div>
+                  <div class="card-activity__text">
+                    <div>Festivals:
+                      <ul>
+                        <li>DearHDD (2025)</li>
+                        <li>Vestochka (2025)</li>
+                        <li>FilmDiaryNYC (2026)</li>
+                      </ul>
+                    </div>
+                    <p>Article on Piligrim — Russian largest journal on documentary movie.</p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Sofyika -->
+              <article class="card-activity reveal" data-delay="1">
+                <span class="icon-link card-activity__link" aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/5332baa9-4f1e-4243-b298-167bbb587c33" alt="Sofyika documentary" loading="lazy" /></div>
+                <div class="card-activity__body card-activity__body--green">
+                  <div class="card-activity__head">
+                    <div class="card-activity__titles">
+                      <p class="card-activity__kicker">documentary movie</p>
+                      <p class="card-activity__name">&ldquo;Sofyika&rdquo;</p>
+                    </div>
+                    <div class="card-activity__meta">2025<br />Togashevo</div>
+                  </div>
+                  <div class="card-activity__text">
+                    <p>In a remote Russian village, Lyubov and her husband care for their ill granddaughter, seeing her condition as part of God&rsquo;s providence — a cross to bear for past sins. Through quiet repentance and faith, they find the strength to endure.</p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Notse -->
+              <article class="card-activity reveal" data-delay="2">
+                <a class="icon-link card-activity__link" href="https://t.me/frokly/237" target="_blank" rel="noopener" aria-label="Open Notse">
+                  <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/ac6842b6-6d10-458c-9aa7-8103a9ee4352" alt="Notse documentary project" loading="lazy" /></div>
+                <div class="card-activity__body card-activity__body--green">
+                  <div class="card-activity__head">
+                    <div class="card-activity__titles">
+                      <p class="card-activity__kicker">documentary project</p>
+                      <p class="card-activity__name">&ldquo;Notse&rdquo;</p>
+                    </div>
+                    <div class="card-activity__meta">2024<br />Georgia</div>
+                  </div>
+                  <div class="card-activity__text">
+                    <p>Crafted from found footage captured during a hitchhiking journey through Georgia. Weaving together a fleeting summer romance and the protagonist&rsquo;s personal diaries, the film explores the intersection of these two worlds. A deliberate blur effect is used throughout, mirroring the beautiful distortion and raw sensuality of memory.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Research -->
+          <div class="subsection">
+            <h3 class="subsection__title reveal">research</h3>
+            <div class="activity-row">
+              <!-- VEB.RF -->
+              <article class="card-activity reveal">
+                <span class="icon-link card-activity__link" aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <div class="card-activity__img" style="background: var(--color-accent-green);"></div>
+                <div class="card-activity__body card-activity__body--pink">
+                  <div class="card-activity__head">
+                    <div class="card-activity__titles">
+                      <p class="card-activity__kicker">article with VEB.RF</p>
+                      <p class="card-activity__name">Economics of Regional AI Infrastructure in Russia: Private Investment Barriers</p>
+                    </div>
+                    <div class="card-activity__meta">2026<br />Moscow</div>
+                  </div>
+                  <div class="card-activity__text">
+                    <p>Key words: AI infrastructure, data centers, project finance, development institutions, off-take agreement, blended finance, cash flow lending, neutral colocation, regional development.</p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Health -->
+              <article class="card-activity reveal" data-delay="1">
+                <span class="icon-link card-activity__link" aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/462854cf-9d16-4131-96e0-3ef4fb9d1c05" alt="Health article" loading="lazy" /></div>
+                <div class="card-activity__body card-activity__body--pink">
+                  <div class="card-activity__head">
+                    <div class="card-activity__titles">
+                      <p class="card-activity__kicker">article</p>
+                      <p class="card-activity__name">Health as form of symbolic consumption</p>
+                    </div>
+                    <div class="card-activity__meta">2025<br />Togashevo</div>
+                  </div>
+                  <div class="card-activity__text">
+                    <p>International Social Science Conference &ldquo;Vectors&rdquo; (2026)</p>
+                    <p>Key words: wellness, health, capitalism, consumption, advertisement, pop culture, somatic society, identity, social science, body, social media, pharma industry.</p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Ghost Towns -->
+              <article class="card-activity reveal" data-delay="2">
+                <a class="icon-link card-activity__link" href="https://www.calameo.com/read/007634774003d153da7a5" target="_blank" rel="noopener" aria-label="Read Ghost Towns of China">
+                  <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <div class="card-activity__img"><img src="assets/img/ghost-towns.jpg" alt="Ghost Towns of China book" loading="lazy" /></div>
+                <div class="card-activity__body card-activity__body--pink">
+                  <div class="card-activity__head">
+                    <div class="card-activity__titles">
+                      <p class="card-activity__kicker">book</p>
+                      <p class="card-activity__name">Ghost Towns of China</p>
+                    </div>
+                    <div class="card-activity__meta">2020-2024</div>
+                  </div>
+                  <div class="card-activity__text">
+                    <p>Published at HSE Print Studio</p>
+                    <p>Key words: ghost towns, Kowloon walled city, Industrialization, urban planning, urbanism, China, demography, Ordos, appropriation.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Fun -->
+          <div class="subsection">
+            <h3 class="subsection__title reveal">fun</h3>
+            <div class="fun-stack">
+              <div class="fun-row">
+                <a class="card-activity reveal" href="https://hsedesign.ru/project/93cc3a73da3e41a6ab3b348322da848d" target="_blank" rel="noopener">
+                  <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/4f383172-b038-4cae-bcb7-2e89ce03f3c6" alt="Somatik" loading="lazy" /></div>
+                  <div class="card-activity__body card-activity__body--black">
+                    <div class="card-activity__head">
+                      <div class="card-activity__titles">
+                        <p class="card-activity__kicker">educational media project</p>
+                        <p class="card-activity__name">Somatik</p>
+                      </div>
+                      <div class="card-activity__meta">2026</div>
+                    </div>
+                  </div>
+                </a>
+                <a class="card-activity reveal" data-delay="1" href="https://kinescope.io/cpWWZkUQuWX5inQcJJxGa9" target="_blank" rel="noopener">
+                  <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/238b1b0e-0e5e-4696-9bfe-af34a6e84829" alt="Day and Night music video" loading="lazy" /></div>
+                  <div class="card-activity__body card-activity__body--black">
+                    <div class="card-activity__head">
+                      <div class="card-activity__titles">
+                        <p class="card-activity__kicker">music video</p>
+                        <p class="card-activity__name">Day and Night</p>
+                      </div>
+                      <div class="card-activity__meta">2025</div>
+                    </div>
+                  </div>
+                </a>
+                <a class="card-activity reveal" data-delay="2" href="https://kinescope.io/e3d3UGur7dxPAsX3ya6BFD" target="_blank" rel="noopener">
+                  <div class="card-activity__img"><img src="assets/img/boys.jpg" alt="Boys music video" loading="lazy" /></div>
+                  <div class="card-activity__body card-activity__body--black">
+                    <div class="card-activity__head">
+                      <div class="card-activity__titles">
+                        <p class="card-activity__kicker">music video</p>
+                        <p class="card-activity__name">Boys</p>
+                      </div>
+                      <div class="card-activity__meta">2025</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="fun-row">
+                <a class="card-activity reveal" href="https://www.calameo.com/books/00763477460121dafa899" target="_blank" rel="noopener" aria-label="Read Pigeon Anthology on Calameo">
+                  <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/17cb5a0e-8467-4cdf-b4f3-860bedbd00af" alt="Pigeon Anthology zine" loading="lazy" /></div>
+                  <div class="card-activity__body card-activity__body--black">
+                    <div class="card-activity__head">
+                      <div class="card-activity__titles">
+                        <p class="card-activity__kicker">birthday zine</p>
+                        <p class="card-activity__name">Pigeon Anthology</p>
+                      </div>
+                      <div class="card-activity__meta">2024</div>
+                    </div>
+                  </div>
+                </a>
+                <a class="card-activity reveal" data-delay="1" href="https://www.calameo.com/read/00763477477f930dfda8d" target="_blank" rel="noopener" aria-label="Read Core magazine on Calameo">
+                  <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/9cac2e97-2334-4006-80b8-6d93c7ba7acc" alt="Core interactive zine" loading="lazy" /></div>
+                  <div class="card-activity__body card-activity__body--black">
+                    <div class="card-activity__head">
+                      <div class="card-activity__titles">
+                        <p class="card-activity__kicker">interactive zine</p>
+                        <p class="card-activity__name">Core</p>
+                      </div>
+                      <div class="card-activity__meta">2024</div>
+                    </div>
+                  </div>
+                </a>
+                <article class="card-activity reveal" data-delay="2">
+                  <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/1d43e2ea-6dc0-4853-8819-bc3bc926b10c" alt="SoyuzMultfilm internship" loading="lazy" /></div>
+                  <div class="card-activity__body card-activity__body--black">
+                    <div class="card-activity__head">
+                      <div class="card-activity__titles">
+                        <p class="card-activity__kicker">Internship at</p>
+                        <p class="card-activity__name">SoyuzMultfilm</p>
+                      </div>
+                      <div class="card-activity__meta">sep 2025</div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="fun-row">
+                <article class="card-activity reveal">
+                  <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/e06d9b1a-81ed-41ef-83a1-e91f16bb1873" alt="Music" loading="lazy" /></div>
+                  <div class="card-activity__body card-activity__body--black">
+                    <div class="card-activity__head">
+                      <div class="card-activity__titles">
+                        <p class="card-activity__kicker">music</p>
+                        <p class="card-activity__name">my rap...</p>
+                      </div>
+                      <div class="card-activity__meta">2024</div>
+                    </div>
+                  </div>
+                </article>
+                <a class="card-activity reveal" data-delay="1" href="https://readymag.website/hseadc1/4431000/" target="_blank" rel="noopener">
+                  <div class="card-activity__img"><img src="assets/img/lighthouse.jpg" alt="Lighthouse village tour guide" loading="lazy" /></div>
+                  <div class="card-activity__body card-activity__body--black">
+                    <div class="card-activity__head">
+                      <div class="card-activity__titles">
+                        <p class="card-activity__kicker">tour guide of the</p>
+                        <p class="card-activity__name">Lighthouse village</p>
+                      </div>
+                      <div class="card-activity__meta">2023</div>
+                    </div>
+                  </div>
+                </a>
+                <article class="card-activity reveal" data-delay="2">
+                  <div class="card-activity__img"><img src="https://www.figma.com/api/mcp/asset/3c2c5a74-a3d0-4590-a21d-0507fa24bb41" alt="Tikhvinets volunteering" loading="lazy" /></div>
+                  <div class="card-activity__body card-activity__body--black">
+                    <div class="card-activity__head">
+                      <div class="card-activity__titles">
+                        <p class="card-activity__kicker">volunteering at</p>
+                        <p class="card-activity__name">Tikhvinets</p>
+                      </div>
+                      <div class="card-activity__meta">2020-2024</div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Learning ===== -->
+    <section class="chapter" id="learning">
+      <h2 class="chapter__title reveal">LEARNING</h2>
+      <p class="chapter__lead reveal">I learn mainly by doing. But formally:</p>
+      <div class="container">
+        <div class="learning-list">
+          <div class="learning-item reveal">
+            <div class="learning-item__head">
+              <p class="learning-item__when">Graduated in 2026</p>
+              <p class="learning-item__name">National Research University Higher School of Economics</p>
+            </div>
+            <div class="learning-item__notes">
+              <p>Merit-based scholarship</p>
+              <p>GPA 8.00</p>
+            </div>
+          </div>
+          <div class="separator"></div>
+          <div class="learning-item reveal">
+            <div class="learning-item__head">
+              <p class="learning-item__when">Fall semester 2024</p>
+              <p class="learning-item__name">City University of Hong Kong</p>
+            </div>
+            <div class="learning-item__notes">
+              <p>Merit-based funding</p>
+              <p>School of Creative Media</p>
+            </div>
+          </div>
+          <div class="separator"></div>
+          <div class="learning-item reveal">
+            <div class="learning-item__head">
+              <p class="learning-item__when">2019 - 2022</p>
+              <p class="learning-item__name">Presidential Physics and Mathematics Lyceum No. 239</p>
+            </div>
+            <div class="learning-item__notes">
+              <p>One of the best technical schools in Russia</p>
+              <p>Class Leader, Female Basketball team member, School board member</p>
+            </div>
+          </div>
+          <div class="separator"></div>
+          <div class="learning-item reveal">
+            <div class="learning-item__head">
+              <p class="learning-item__when">2012 - 2021</p>
+              <p class="learning-item__name">Sviridov Art School</p>
+            </div>
+            <div class="learning-item__notes">
+              <p>Winner of 7 Olympiads in Art History and Literature</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Thinking ===== -->
+    <section class="chapter" id="thinking">
+      <h2 class="chapter__title reveal">THINKING</h2>
+      <p class="thinking__body reveal">Still in progress.</p>
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Arina Airieva — strategy &amp; innovation within creation.</p>
+    </footer>
+  </main>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+/* ===== Custom cursor (GOAT) ===== */
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none;
+  }
+}
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 58px;
+  height: 96px;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("../assets/img/cursor-still.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  will-change: transform;
+}
+.cursor.is-visible {
+  opacity: 1;
+}
+.cursor.is-moving {
+  background-image: url("../assets/img/cursor-move.png");
+}
+
+/* ===== Navigation (molecule/table-of-content) ===== */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  padding: 10px var(--side-pad);
+  background: var(--color-nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.nav__contacts {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  padding: 10px 10px 13px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: var(--fs-regular);
+  line-height: 0.8;
+  white-space: nowrap;
+  transition: transform var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease);
+}
+
+/* contact buttons (green) */
+.btn-contact {
+  background: var(--color-accent-green);
+  color: var(--color-black);
+}
+.btn-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(102, 255, 179, 0.4);
+}
+
+/* nav link buttons */
+.nav-link {
+  background: transparent;
+  color: var(--color-accent-light);
+}
+.nav-link:hover {
+  transform: translateY(-2px);
+  color: var(--color-white);
+}
+.nav-link.is-active {
+  background: var(--color-pure-black);
+  color: var(--color-white);
+}
+
+.nav__burger {
+  display: none;
+  margin-left: auto;
+  width: 40px;
+  height: 26px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.nav__burger span {
+  display: block;
+  height: 2px;
+  background: var(--color-white);
+  border-radius: 2px;
+  transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+
+/* ===== Page shell ===== */
+.page {
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--side-pad);
+}
+
+.chapter {
+  scroll-margin-top: 90px;
+  padding: 60px 0;
+}
+
+/* Pull WORKING (and everything after it, via normal flow) up so it overlaps
+   the bottom of the photo backdrop. position/z-index keep it above the photo. */
+#working {
+  position: relative;
+  z-index: 2;
+  margin-top: -200px;
+}
+
+/* Full-bleed photo backdrop that sits between the hero and the WORKING
+   section. The band matches the image ratio so WORKING begins exactly where
+   the photo ends. */
+.chapter--photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1638 / 1544;
+  padding: 60px 0;
+  overflow: hidden;
+}
+.chapter--photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("../assets/img/section-bg.jpg") center top / cover no-repeat;
+}
+/* Scrim keeps the white ABOUT copy legible over the photo and fades the
+   bottom edge into the dark page so WORKING blends in cleanly. */
+.chapter--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(1, 1, 1, 0.55) 0%,
+    rgba(1, 1, 1, 0.25) 22%,
+    rgba(1, 1, 1, 0) 45%,
+    rgba(1, 1, 1, 0.4) 80%,
+    var(--color-bg) 100%
+  );
+}
+.chapter--photo > * {
+  position: relative;
+  z-index: 2;
+}
+
+.chapter__title {
+  font-weight: 700;
+  font-size: var(--fs-title);
+  line-height: 0.8;
+  color: var(--color-white);
+  text-transform: uppercase;
+  padding-left: clamp(0px, 18vw, 283px);
+  margin-bottom: var(--space-16);
+}
+
+.chapter__lead {
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 1.3;
+  max-width: 835px;
+  padding: 0 31px;
+  margin-bottom: var(--space-12);
+}
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  /* Match the background photo ratio so the whole shot (incl. the shoe)
+     shows full-width with no cropping. */
+  aspect-ratio: 1440 / 1529;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--color-bg);
+}
+.hero__bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+/* Readability scrim: lightens the upper-left so the black headline stays legible
+   over the photo, and fades the bottom into the dark page. */
+.hero__bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.32) 32%,
+    rgba(255, 255, 255, 0) 58%
+  );
+}
+.hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 62%,
+    var(--color-bg) 100%
+  );
+}
+
+/* Animated decorative overlay, confined to the hero (first screen) and
+   contained so none of the dots get cropped. Scrolls away with the hero. */
+.hero__overlay {
+  position: absolute;
+  /* Inset so the artwork is smaller than the screen and the dots keep a clear
+     margin from every edge. */
+  inset: 5% 6%;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero__overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  padding: 130px var(--side-pad) 0 clamp(24px, 17vw, 246px);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 760px;
+}
+
+.hero__headline {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.hero__title {
+  font-weight: 700;
+  font-size: var(--fs-hero);
+  line-height: 0.8;
+  color: var(--color-black);
+  white-space: nowrap;
+}
+.hero__sub {
+  font-weight: 700;
+  font-size: var(--fs-hero-sub);
+  line-height: 0.9;
+  color: var(--color-black);
+  padding-left: 56px;
+}
+.hero__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-left: 56px;
+}
+.hero__meta p {
+  font-weight: 700;
+  font-size: var(--fs-regular);
+  line-height: 1.2;
+  color: var(--color-black);
+}
+
+/* ===== About / text bodies ===== */
+.about__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: 0 31px;
+}
+.about__body p {
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 1.3;
+  max-width: 1028px;
+}
+
+/* ===== Work cards ===== */
+.work-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: stretch;
+}
+
+.card-work {
+  display: flex;
+  gap: 42px;
+  width: 100%;
+  padding: 30px;
+  background: var(--color-white);
+  color: var(--color-black);
+  border-radius: var(--radius-card);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.card-work:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+.card-work__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  flex: 0 0 428px;
+}
+.card-work__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.card-work__date {
+  font-weight: 400;
+  font-size: var(--fs-note);
+  line-height: 1.2;
+  color: var(--color-muted);
+}
+.card-work__titlerow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.card-work__titles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+.card-work__title {
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  line-height: 1;
+}
+.card-work__company {
+  font-weight: 500;
+  font-size: var(--fs-h3);
+  line-height: 0.9;
+}
+.card-work__desc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  font-weight: 500;
+  font-size: var(--fs-regular);
+  line-height: 1.2;
+  max-width: 392px;
+}
+.card-work__media {
+  flex: 1;
+  min-width: 0;
+  height: 359px;
+  border-radius: var(--radius-img);
+  overflow: hidden;
+  background: var(--color-card-placeholder);
+}
+.card-work__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* round arrow link */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  flex-shrink: 0;
+  background: var(--color-accent-light);
+  border-radius: var(--radius-round);
+  transition: transform var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+.icon-link:hover {
+  transform: rotate(-45deg) scale(1.08);
+  background: var(--color-accent-green);
+}
+.icon-link img {
+  width: 32px;
+}
+.icon-link .icon-arrow {
+  width: 28px;
+  height: 28px;
+  color: var(--color-black);
+}
+
+/* ===== Brand cards ===== */
+.brand-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-3);
+  justify-content: center;
+}
+.card-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  height: 140px;
+  padding: 10px 20px;
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.card-brand:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+.card-brand img {
+  width: 100%;
+  height: 96px;
+  object-fit: contain;
+}
+
+/* ===== Making sub-sections ===== */
+.making {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+.subsection__title {
+  font-weight: 700;
+  font-size: var(--fs-title);
+  line-height: 0.8;
+  text-transform: lowercase;
+  padding-left: clamp(0px, 18vw, 283px);
+}
+
+/* Horizontal carousel: cards sit in a single line and scroll sideways. */
+.activity-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-3);
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  /* top room for the hover lift, bottom room for the scrollbar */
+  padding: 14px 0 18px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-muted) transparent;
+}
+.activity-row::-webkit-scrollbar {
+  height: 8px;
+}
+.activity-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+.activity-row::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 999px;
+}
+/* 537px is the design width; on narrow screens the card caps to the viewport
+   so the neighbouring card peeks in, signalling the row is swipeable. */
+.activity-row .card-activity {
+  flex: 0 0 537px;
+  width: 537px;
+  max-width: 88vw;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* ===== Activity card ===== */
+.card-activity {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 537px;
+  max-width: 100%;
+  transition: transform var(--dur) var(--ease);
+}
+.card-activity:hover {
+  transform: translateY(-6px);
+}
+.card-activity__img {
+  position: relative;
+  height: 302px;
+  margin-bottom: -120px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--color-card-placeholder);
+}
+.card-activity__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-activity__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  /* min-height keeps the designed size while letting the card grow downward
+     when the copy wraps on narrow widths (instead of overflowing). */
+  min-height: 323px;
+  padding: 20px 30px;
+  border-radius: var(--radius-card);
+}
+.card-activity__body--green { background: var(--color-accent-green); color: var(--color-black); }
+.card-activity__body--pink { background: var(--color-accent-pink); color: var(--color-black); }
+.card-activity__body--black { background: var(--color-pure-black); color: var(--color-white); }
+
+.card-activity__head {
+  display: flex;
+  gap: var(--space-8);
+  align-items: flex-start;
+}
+.card-activity__titles { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.card-activity__kicker { font-weight: 500; font-size: var(--fs-h3); line-height: 0.9; overflow-wrap: break-word; }
+.card-activity__name { font-weight: 700; font-size: var(--fs-h2); line-height: 1; overflow-wrap: break-word; }
+.card-activity__meta {
+  text-align: right;
+  font-weight: 400;
+  font-size: var(--fs-note);
+  line-height: 1.2;
+  width: 109px;
+  flex-shrink: 0;
+}
+.card-activity__body--black .card-activity__meta { color: var(--color-accent-light); }
+.card-activity__body--green .card-activity__meta,
+.card-activity__body--pink .card-activity__meta { color: var(--color-muted); }
+
+.card-activity__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  font-weight: 500;
+  font-size: var(--fs-regular);
+  line-height: 1.2;
+}
+.card-activity__text ul { list-style: disc; padding-left: 24px; }
+
+.card-activity__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+/* fun: overlapping stacked cards.
+   Horizontally the cards sit tight together; vertically there's a small gap. */
+.fun-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+.fun-row {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 6px;
+  row-gap: var(--space-4);
+  justify-content: center;
+}
+
+/* Hover: the card grows up out of its row and the text panel turns green. */
+.fun-row .card-activity {
+  transform-origin: center bottom;
+  transition: transform var(--dur) var(--ease);
+}
+.fun-row .card-activity__body {
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.fun-row .card-activity:hover {
+  transform: translateY(-18px) scale(1.04);
+  z-index: 5;
+}
+.fun-row .card-activity:hover .card-activity__body--black {
+  background: var(--color-accent-green);
+  color: var(--color-black);
+}
+.fun-row .card-activity:hover .card-activity__body--black .card-activity__meta {
+  color: var(--color-muted);
+}
+
+/* ===== Learning ===== */
+.learning-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 0 31px;
+  max-width: 1326px;
+}
+.learning-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  color: var(--color-white);
+}
+.learning-item__head { display: flex; flex-direction: column; gap: var(--space-3); }
+.learning-item__when { font-weight: 400; font-size: var(--fs-note); line-height: 1.2; }
+.learning-item__name { font-weight: 700; font-size: var(--fs-h2); line-height: 1; }
+.learning-item__notes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 643px;
+  font-weight: 500;
+  font-size: var(--fs-regular);
+  line-height: 1.2;
+}
+.separator { height: 1px; background: rgba(255, 255, 255, 0.3); width: 100%; max-width: 1326px; }
+
+/* ===== Footer / thinking ===== */
+.thinking__body {
+  padding: 0 31px;
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 1.3;
+}
+.site-footer {
+  padding: 60px var(--side-pad);
+  text-align: center;
+  color: var(--color-muted);
+  font-size: var(--fs-note);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  :root {
+    --fs-hero: 84px;
+    --fs-hero-sub: 36px;
+    --fs-title: 48px;
+  }
+  .card-work {
+    flex-direction: column;
+  }
+  .card-work__left {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  .card-work__media {
+    width: 100%;
+  }
+  .chapter__title,
+  .subsection__title {
+    padding-left: var(--side-pad);
+  }
+  .brand-cards {
+    flex-wrap: wrap;
+  }
+  .brand-cards .card-brand {
+    flex: 1 1 160px;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --fs-hero: 56px;
+    --fs-hero-sub: 28px;
+    --fs-title: 40px;
+    --fs-h2: 26px;
+    --fs-body: 18px;
+  }
+
+  /* Collapse nav into a slide-down panel */
+  .nav {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: 12px var(--side-pad);
+  }
+  .nav__burger {
+    display: flex;
+  }
+  .nav__contacts {
+    flex-wrap: wrap;
+    order: 3;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .nav__links {
+    flex-wrap: wrap;
+    order: 2;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .nav.is-open .nav__contacts,
+  .nav.is-open .nav__links {
+    max-height: 320px;
+    opacity: 1;
+  }
+  .nav.is-open .nav__burger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav.is-open .nav__burger span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav.is-open .nav__burger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .hero__inner {
+    padding-top: 110px;
+  }
+  .hero__sub,
+  .hero__meta {
+    padding-left: 24px;
+  }
+  .card-work,
+  .card-activity__body {
+    padding: 20px;
+  }
+  .hero {
+    min-height: 720px;
+  }
+}
