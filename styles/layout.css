@@ -740,8 +740,13 @@
     overflow: visible;
     padding: 48px 0 56px;
   }
+  /* Pull ABOUT up by 250px; add the same amount back to WORKING so everything
+     below ABOUT stays exactly where it was. */
+  #about {
+    margin-top: -250px;
+  }
   #working {
-    margin-top: 0;
+    margin-top: 250px;
   }
 
   /* ---- Nav: contacts on the LEFT (always visible), burger on the RIGHT.
