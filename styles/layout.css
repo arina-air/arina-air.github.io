@@ -398,6 +398,11 @@
   height: 100%;
   object-fit: cover;
 }
+/* First WORKING card (Ceres): keep the left side in frame when the image
+   gets cropped on narrow screens — crop the right edge instead of the center. */
+.work-cards .card-work:first-child .card-work__media img {
+  object-position: left center;
+}
 
 /* round arrow link */
 .icon-link {
@@ -622,6 +627,16 @@
   color: var(--color-muted);
 }
 
+/* Fun section uses a green panel by default (overrides the black variant),
+   only in the fun rows — movies stay green, research pink, etc. */
+.fun-row .card-activity__body--black {
+  background: var(--color-accent-green);
+  color: var(--color-black);
+}
+.fun-row .card-activity__body--black .card-activity__meta {
+  color: var(--color-muted);
+}
+
 /* ===== Learning ===== */
 .learning-list {
   display: flex;
@@ -756,6 +771,17 @@
     order: 2;
     margin-left: var(--space-3);
     flex-shrink: 0;
+    /* Make the burger an obvious tappable button (green like the contacts) */
+    width: 46px;
+    height: 30px;
+    padding: 7px 10px;
+    gap: 4px;
+    background: var(--color-accent-green);
+    border-radius: var(--radius-pill);
+  }
+  .nav__burger span {
+    background: var(--color-black);
+    height: 2.5px;
   }
   .nav__links {
     order: 3;
