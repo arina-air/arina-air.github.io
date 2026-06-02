@@ -671,6 +671,15 @@
     --fs-hero-sub: 36px;
     --fs-title: 48px;
   }
+  /* Let the nav wrap on tablets instead of overflowing off-screen */
+  .nav {
+    flex-wrap: wrap;
+    row-gap: var(--space-3);
+  }
+  .nav__contacts,
+  .nav__links {
+    flex-wrap: wrap;
+  }
   .card-work {
     flex-direction: column;
   }
@@ -695,44 +704,74 @@
 
 @media (max-width: 760px) {
   :root {
-    --fs-hero: 56px;
-    --fs-hero-sub: 28px;
-    --fs-title: 40px;
-    --fs-h2: 26px;
-    --fs-body: 18px;
+    /* Mobile type scale — proportionally smaller than desktop so headings,
+       card titles and copy all shrink together and words fit on narrow cards. */
+    --fs-hero: 48px;    /* 128 */
+    --fs-hero-sub: 22px;/* 48 */
+    --fs-title: 34px;   /* 64 */
+    --fs-h2: 20px;      /* 32 — card title */
+    --fs-h3: 16px;      /* 24 — card kicker */
+    --fs-body: 16px;    /* 20 */
+    --fs-regular: 14px; /* 16 */
+    --fs-note: 11px;    /* 12 */
+    --side-pad: 18px;
   }
 
-  /* Collapse nav into a slide-down panel */
+  /* ---- Stacking: no section overlaps another. The ABOUT photo band grows to
+     fit its text (instead of a fixed ratio that clips it), and WORKING no
+     longer pulls up over it. ---- */
+  .chapter--photo {
+    aspect-ratio: auto;
+    overflow: visible;
+    padding: 48px 0 56px;
+  }
+  #working {
+    margin-top: 0;
+  }
+
+  /* ---- Nav: contacts on the LEFT (always visible), burger on the RIGHT.
+     Tapping the burger drops down the section links. ---- */
   .nav {
     flex-wrap: wrap;
-    gap: var(--space-3);
-    padding: 12px var(--side-pad);
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: 10px var(--side-pad);
+  }
+  .nav__contacts {
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .nav__contacts .btn-pill {
+    height: 22px;
+    padding: 7px 9px 9px;
+    font-size: 13px;
   }
   .nav__burger {
     display: flex;
-  }
-  .nav__contacts {
-    flex-wrap: wrap;
-    order: 3;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    order: 2;
+    margin-left: var(--space-3);
+    flex-shrink: 0;
   }
   .nav__links {
-    flex-wrap: wrap;
-    order: 2;
+    order: 3;
     width: 100%;
+    flex-wrap: wrap;
+    gap: var(--space-2);
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    transition: max-height var(--dur) var(--ease), opacity var(--dur) var(--ease),
+      margin-top var(--dur) var(--ease);
   }
-  .nav.is-open .nav__contacts,
   .nav.is-open .nav__links {
-    max-height: 320px;
+    max-height: 60vh;
     opacity: 1;
+    margin-top: var(--space-2);
   }
   .nav.is-open .nav__burger span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
@@ -744,18 +783,94 @@
     transform: translateY(-7px) rotate(-45deg);
   }
 
+  /* ---- Hero ---- */
+  .hero {
+    min-height: 640px;
+  }
   .hero__inner {
-    padding-top: 110px;
+    padding: 104px var(--side-pad) 0;
+    gap: 32px;
+  }
+  .hero__headline {
+    gap: 36px;
+  }
+  .hero__title {
+    white-space: normal;
   }
   .hero__sub,
   .hero__meta {
-    padding-left: 24px;
+    padding-left: 8px;
   }
-  .card-work,
+
+  /* ---- Work cards ---- */
+  .card-work {
+    padding: 20px;
+  }
+  .card-work__left {
+    gap: var(--space-8);
+  }
+  .card-work__media {
+    height: 240px;
+  }
+
+  /* ---- Movies / Research carousels: uniform card width + equal height ---- */
+  .activity-row {
+    align-items: stretch;
+    gap: var(--space-3);
+    scroll-snap-type: x mandatory;
+  }
+  .activity-row .card-activity {
+    flex: 0 0 84vw;
+    width: 84vw;
+    max-width: 380px;
+  }
+  /* card stretches to the tallest in the row; body fills the leftover space */
+  .activity-row .card-activity__body {
+    flex: 1 1 auto;
+  }
   .card-activity__body {
     padding: 20px;
   }
-  .hero {
-    min-height: 720px;
+
+  /* ---- Fun: each row becomes a horizontal carousel too, cards equal height ---- */
+  .fun-stack {
+    gap: var(--space-8);
+    align-items: stretch;
+  }
+  .fun-row {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    column-gap: var(--space-3);
+    overflow-x: auto;
+    overflow-y: hidden;
+    align-items: stretch;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0 14px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-muted) transparent;
+  }
+  .fun-row::-webkit-scrollbar {
+    height: 8px;
+  }
+  .fun-row::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .fun-row::-webkit-scrollbar-thumb {
+    background: var(--color-muted);
+    border-radius: 999px;
+  }
+  .fun-row .card-activity {
+    flex: 0 0 72vw;
+    width: 72vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+  .fun-row .card-activity__body {
+    flex: 1 1 auto;
+  }
+  /* no hover-lift on touch so cards don't jump around */
+  .fun-row .card-activity:hover {
+    transform: none;
   }
 }
